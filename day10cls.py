@@ -1,30 +1,36 @@
 from abc import ABC, abstractmethod
 
 class User(ABC):
-    def __init__(self, name, year_joined):
+    def __init__(self, name, join_year):
         self.name = name
-        self.year_joined = year_joined
+        self.join_year = join_year
 
     def years_on_platform(self):
-        return 2025 - self.year_joined
+        return 2025 - self.join_year
 
     @abstractmethod
-    def get_role(self):
+    def show_role(self):
         pass
 
-    def print_user_message(self):
-        print(f"Name: {self.name}, Role: {self.get_role()}, Years on Platform: {self.years_on_platform()}")
+    def __str__(self):
+        return f"{self.name} has been on the platform for {self.years_on_platform()} years."
 
 class Customer(User):
-    def get_role(self):
+    def show_role(self):
         return "Customer"
 
+    def __str__(self):
+        return f"{self.name} ({self.show_role()}) has been using the platform for {self.years_on_platform()} years."
+
 class Vendor(User):
-    def get_role(self):
+    def show_role(self):
         return "Vendor"
 
-c = Customer("Priya", 2020)
-v = Vendor("Arjun", 2015)
+    def __str__(self):
+        return f"{self.name} ({self.show_role()}) has been using the platform for {self.years_on_platform()} years."
 
-c.print_user_message()
-v.print_user_message()
+c1 = Customer("Alice", 2021)
+v1 = Vendor("Bob", 2019)
+
+print(c1)
+print(v1)
