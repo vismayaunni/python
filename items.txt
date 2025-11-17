@@ -1,2 +1,3 @@
 hi
 pen
+& C:/Users/vis/AppData/Local/Programs/Python/Python313/python.exe c:/Users/vis/OneDrive/python/day12cls.py
